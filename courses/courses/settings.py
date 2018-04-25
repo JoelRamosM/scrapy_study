@@ -14,9 +14,8 @@ BOT_NAME = 'courses'
 SPIDER_MODULES = ['courses.spiders']
 NEWSPIDER_MODULE = 'courses.spiders'
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'courses (+http://www.yourdomain.com)'
+USER_AGENT = 'courses (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
