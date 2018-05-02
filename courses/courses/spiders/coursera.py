@@ -7,6 +7,16 @@ class CourseraSpider(scrapy.Spider):
     start_urls = ['https://www.coursera.org/browse?languages=pt/']
     category = None
 
+    def start_requests(self):
+        if self.category is None:
+            yield scrapy.Request(
+                url='https://www.coursera.org/browse?languages=pt/',
+                callback=self.parse)
+        else:
+            yield scrapy.Request(
+                url='https://www.coursera.org/browse/%s' % self.category,
+                callback=self.parse)
+
     def parse(self, response):
         self.log(self.category)
         categories = response.xpath(
